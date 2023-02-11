@@ -9,15 +9,11 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 function ToastPlayground() {
   const [variant, setVariant] = React.useState("notice");
   const [message, setMessage] = React.useState("");
-  const { toasts, setToasts, destroyToast } = React.useContext(ToastContext);
+  const { toasts, setToasts, createToast } = React.useContext(ToastContext);
 
   const submitHandler = function (e) {
     e.preventDefault();
-    const newToasts = [
-      ...toasts,
-      { variant, message, id: crypto.randomUUID() },
-    ];
-    setToasts(newToasts);
+    createToast(variant, message);
     setVariant("notice");
     setMessage("");
   };
