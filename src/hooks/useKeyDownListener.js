@@ -11,7 +11,7 @@ function useKeyDownListener(key, keyDownCallback) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [key, keyDownCallback]);
 
   return key;
 }

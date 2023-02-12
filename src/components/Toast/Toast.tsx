@@ -19,7 +19,13 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({ variant, message, id }) {
+type Props = {
+  variant: Variant;
+  message: string;
+  id: string;
+};
+
+function Toast({ variant, message, id }: Props) {
   const Icon = ICONS_BY_VARIANT[variant];
   const { destroyToast } = React.useContext(ToastContext);
 

@@ -9,7 +9,7 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 function ToastPlayground() {
   const [variant, setVariant] = React.useState("notice");
   const [message, setMessage] = React.useState("");
-  const { toasts, setToasts, createToast } = React.useContext(ToastContext);
+  const { createToast } = React.useContext(ToastContext);
 
   const submitHandler = function (e) {
     e.preventDefault();
@@ -57,7 +57,7 @@ function ToastPlayground() {
                     name="variant"
                     value={opt}
                     onChange={(e) => setVariant(e.target.value)}
-                    checked={opt == variant}
+                    checked={opt === variant}
                   />
                   {opt}
                 </label>
