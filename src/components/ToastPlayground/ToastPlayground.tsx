@@ -4,14 +4,14 @@ import styles from "./ToastPlayground.module.css";
 import { ToastContext } from "../ToastProvider";
 import ToastShelf from "../ToastShelf/ToastShelf";
 
-const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
+const VARIANT_OPTIONS: Variant[] = ["notice", "warning", "success", "error"];
 
 function ToastPlayground() {
-  const [variant, setVariant] = React.useState("notice");
-  const [message, setMessage] = React.useState("");
+  const [variant, setVariant] = React.useState<Variant>("notice");
+  const [message, setMessage] = React.useState<string>("");
   const { createToast } = React.useContext(ToastContext);
 
-  const submitHandler = function (e) {
+  const submitHandler = function (e: Event) {
     e.preventDefault();
     createToast(variant, message);
     setVariant("notice");
@@ -49,7 +49,7 @@ function ToastPlayground() {
           <div className={styles.row}>
             <div className={styles.label}>Variant</div>
             <div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
-              {VARIANT_OPTIONS.map((opt) => (
+              {VARIANT_OPTIONS.map((opt: Variant) => (
                 <label key={opt} htmlFor={`variant-${opt}`}>
                   <input
                     id={`variant-${opt}`}

@@ -19,11 +19,7 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-type Props = {
-  variant: Variant;
-  message: string;
-  id: string;
-};
+type Props = Slice;
 
 function Toast({ variant, message, id }: Props) {
   const Icon = ICONS_BY_VARIANT[variant];
